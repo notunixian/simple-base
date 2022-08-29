@@ -18,6 +18,6 @@ If this is your first time using Il2CppInspector injecton projects, you should r
 * Build, and use your favorite injector for EAC (there are many that exist that are free & open source, do some googling.)
 * Any errors relating to linker errors are most likely due to you not having the [DirectX SDK installed.](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
 
-### Casing & Formatting:
-Most of the code that I have placed myself in here are in snake_case and are formatted using clang-format.
+### Casing:
+Most of the code that I have placed myself in here are in snake_case.
 You are free to change this to whatever you like.
