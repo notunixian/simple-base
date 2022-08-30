@@ -26,7 +26,7 @@ This base will break whenever VRChat decides to update their game, I'll try to u
 
 But, instructions on how to update this:
 * Grab the source to Il2CppInspector
-* Head over to Il2CppInspector.Common/IL2CPP/Il2CpBinaryClasses.cs
+* Head over to Il2CppInspector.Common/IL2CPP/Il2CppBinaryClasses.cs
 * Modify the data to properly match being able to read IL2CPP version 24.4.
 * Run your modified version and create a C++ scaffolding project and point it to the directory that contains simple-base.
 * Let it run, and now change any method names that VRChat may have changed due to the updates.
