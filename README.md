@@ -4,7 +4,7 @@
 A extremely simple base for VRChat clients made in C++, using the data of a modified build of [Il2CppInspector.](https://github.com/djkaty/Il2CppInspector)\
 You are free to do anything you want with this base, aslong as you are following [the license of Il2CppInspector.](https://github.com/djkaty/Il2CppInspector/blob/master/LICENSE)
 
-If this is your first time using Il2CppInspector injecton projects, you should read up on [Il2CppInspector's developers writeups on using code inside of them.](https://katyscode.wordpress.com/2021/01/14/il2cppinspector-tutorial-working-with-code-in-il2cpp-dll-injection-projects/)
+If this is your first time using Il2CppInspector injecton projects, you should read up on [the writeups on using code inside of them.](https://katyscode.wordpress.com/2021/01/14/il2cppinspector-tutorial-working-with-code-in-il2cpp-dll-injection-projects/)
 
 ### This base contains:
 
