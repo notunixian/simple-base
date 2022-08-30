@@ -4,6 +4,8 @@
 A extremely simple base for VRChat clients made in C++, using the data of a modified build of [Il2CppInspector.](https://github.com/djkaty/Il2CppInspector)\
 You are free to do anything you want with this base, aslong as you are following [the license of Il2CppInspector.](https://github.com/djkaty/Il2CppInspector/blob/master/LICENSE)
 
+This repository also includes other data exported by Il2CppInspector, if you want to access any of this data you are free to by going into the il2cppinspector_resources folder.
+
 If this is your first time using Il2CppInspector injecton projects, you should read up on [the writeups on using code inside of them.](https://katyscode.wordpress.com/2021/01/14/il2cppinspector-tutorial-working-with-code-in-il2cpp-dll-injection-projects/)
 
 ### This base contains:
@@ -18,6 +20,12 @@ If this is your first time using Il2CppInspector injecton projects, you should r
 * Build, and use your favorite injector for EAC (do some googling, example: [face injector](https://github.com/Vazzupov/face-injector-fixed))
 * Any errors relating to linker errors are most likely due to you not having the [DirectX SDK installed.](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
 
-### Casing:
-Most of the code that I have placed myself in here are in snake_case.
-You are free to change this to whatever you like.
+### Updating this base:
+This base will break whenever VRChat decides to update their game, I'll try to update this repo as often as possible when VRChat updates to provide the smoothest experience possible.
+
+But, instructions on how to update this:
+* Grab the source to Il2CppInspector
+* Head over to Il2CppInspector.Common/IL2CPP/Il2CpBinaryClasses.cs
+* Modify the data to properly match being able to read IL2CPP version 24.4.
+* Run your modified version and create a C++ scaffolding project and point it to the directory that contains simple-base.
+* Let it run, and now change any method names that VRChat may have changed due to the updates.
