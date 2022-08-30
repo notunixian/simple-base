@@ -11,11 +11,11 @@ If this is your first time using Il2CppInspector injecton projects, you should r
 * All the data exported from Il2CppInspector. This including **all** types, methods, etc.
 * Fully working version of [ocornut's Dear ImGui](https://github.com/ocornut/imgui) using [Rebzzel's kiero](https://github.com/Rebzzel/kiero).
 * Example hooking of methods inside of VRChat.
-* Example tracers and names using methods inside of Unity and ImGui drawing.
+* Example tracers, names, and playerlist using methods inside of Unity and ImGui drawing.
 
 ### Using this base:
 * Launch up your favorite IDE that can use msbuild (VSCode, VS, CLion, etc.)
-* Build, and use your favorite injector for EAC (there are many that exist that are free & open source, do some googling.)
+* Build, and use your favorite injector for EAC (do some googling, example: [face injector](https://github.com/Vazzupov/face-injector-fixed))
 * Any errors relating to linker errors are most likely due to you not having the [DirectX SDK installed.](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
 
 ### Casing:
