@@ -1,4 +1,4 @@
-## simple-base - base for c++ VRChat clients
+## Simple-Base - base for c++ VRChat clients
 [![HitCount](https://hits.dwyl.com/notunixian/simple-base.svg?style=flat-square)](http://hits.dwyl.com/notunixian/simple-base)
 
 Confirmed working for latest VRC update (build 1229) on 8/31/22.
@@ -30,5 +30,5 @@ But, instructions on how to update this:
 * Grab the source to Il2CppInspector
 * Head over to Il2CppInspector.Common/IL2CPP/Il2CppBinaryClasses.cs
 * Modify the data to properly match being able to read IL2CPP version 24.4.
-* Run your modified version and create a C++ scaffolding project and point it to the directory that contains simple-base.
+* Run your modified version and create a C++ scaffolding project and point it to the directory that contains Simple-Base.
 * Let it run, and now change any method names that VRChat may have changed due to the updates.
