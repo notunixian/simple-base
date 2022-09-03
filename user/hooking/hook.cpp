@@ -45,6 +45,8 @@ void perform_hooks()
 	HOOKFUNC(u00CDu00CDu00CCu00CDu00CDu00CEu00CCu00CDu00CDu00CEu00CDu00CEu00CDu00CEu00CEu00CFu00CFu00CCu00CCu00CEu00CEu00CDu00CF_u00CEu00CEu00CEu00CEu00CCu00CDu00CFu00CEu00CEu00CCu00CFu00CDu00CFu00CEu00CFu00CEu00CEu00CEu00CFu00CFu00CDu00CDu00CF,
 		on_player_leave);
 
+	HOOKFUNC(InputManager_OnUpdate, update);		
+
 
 	DetourTransactionCommit();
 }
@@ -74,4 +76,15 @@ void on_player_leave(u00CDu00CDu00CCu00CDu00CDu00CEu00CCu00CDu00CDu00CEu00CDu00C
 	}
 
 	leave_original(class_ptr, player_ptr, method);
+}
+
+// this is called on update -- ref: https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html
+void update(app::InputManager * __this, app::InputUpdateType__Enum updateType, app::InputEventBuffer * eventBuffer, MethodInfo * method)
+{
+	/* you would want to perform a lot of stuff here
+	examples:
+	fly, event exploits, anything that requires being set constantly or being called constantly.
+	*/
+
+	InputManager_OnUpdate(__this, updateType, eventBuffer, method);
 }
