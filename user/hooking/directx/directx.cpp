@@ -73,8 +73,10 @@ void esp_run()
 				const float h = w2s_chest.y / 32.f;
 				const float w = h / 4.f;
 				const float l = w2s_chest.x - w;
-																							 // minus display size from w2s
-																							 // ref: https://forum.unity.com/threads/worldtoscreenpoint-doesnt-work-on-y-screen-axis.34161/
+
+
+				// it is required here that you minus the y of the display size from the y of the w2s for the y axis on tracers to be shown correctly.
+				// ref: https://forum.unity.com/threads/worldtoscreenpoint-doesnt-work-on-y-screen-axis.34161/
 				draw->AddLine(ImVec2(io.DisplaySize.x / 2, io.DisplaySize.y), ImVec2(l, io.DisplaySize.y - w2s_chest.y), ImColor(255, 255, 255, 255), 2.0F);
 			}
 
