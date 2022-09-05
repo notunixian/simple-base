@@ -20,6 +20,7 @@ ID3D11Device* pDevice = NULL;
 ID3D11DeviceContext* pContext = NULL;
 ID3D11RenderTargetView* mainRenderTargetView;
 extern bool in_room;
+app::Camera* camera = nullptr;
 
 void InitImGui()
 {
@@ -40,38 +41,41 @@ LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 void esp_run()
 {
-	auto camera = app::Camera_get_current(nullptr);
-	if (in_room)
+	if (in_room && camera != nullptr)
 	{
 		auto players = app::VRCPlayerApi_get_AllPlayers(nullptr);
 		auto player_amount = app::List_1_VRC_SDKBase_VRCPlayerApi__get_Count(players, nullptr);
 		auto draw = ImGui::GetForegroundDrawList();
 		for (auto i = 1; i < player_amount; i++)
 		{
-			auto player = app::List_1_VRC_SDKBase_VRCPlayerApi__get_Item(players, i, nullptr);
+			const auto player = app::List_1_VRC_SDKBase_VRCPlayerApi__get_Item(players, i, nullptr);
+			
+			// forgot this check here, would cause a crash as sometimes i would access a player that was null.
+			if (player == nullptr) return;
+			if (player->fields.gameObject == nullptr) return;
 
 			if (player->fields.mPlayerId == app::Networking_get_LocalPlayer(nullptr)->fields.mPlayerId) return;
 			if (app::GameObject_get_activeSelf(player->fields.gameObject, nullptr) == false) return;
 
-			auto player_transform = app::GameObject_get_transform(player->fields.gameObject, nullptr);
-			auto player_pos = app::Transform_get_position(player_transform, nullptr);
-			auto player_chest = app::VRCPlayerApi_GetBonePosition(player, (app::HumanBodyBones__Enum)0x00000008, nullptr);
-			auto player_head = app::VRCPlayerApi_GetBonePosition(player, (app::HumanBodyBones__Enum)0x0000000A, nullptr);
-			auto player_feet = app::VRCPlayerApi_GetBonePosition(player, (app::HumanBodyBones__Enum)0x00000005, nullptr);
-			auto w2s_chest = app::Camera_WorldToScreenPoint_1(camera, player_chest, nullptr);
-			auto w2s_head = app::Camera_WorldToScreenPoint_1(camera, player_head, nullptr);
-			auto w2s_feet = app::Camera_WorldToScreenPoint_1(camera, player_head, nullptr);
+			const auto player_transform = app::GameObject_get_transform(player->fields.gameObject, nullptr);
+			const auto player_pos = app::Transform_get_position(player_transform, nullptr);
+			const auto player_chest = app::VRCPlayerApi_GetBonePosition(player, (app::HumanBodyBones__Enum)0x00000008, nullptr);
+			const auto player_head = app::VRCPlayerApi_GetBonePosition(player, (app::HumanBodyBones__Enum)0x0000000A, nullptr);
+			const auto player_feet = app::VRCPlayerApi_GetBonePosition(player, (app::HumanBodyBones__Enum)0x00000005, nullptr);
+			const auto w2s_chest = app::Camera_WorldToScreenPoint_1(camera, player_chest, nullptr);
+			const auto w2s_head = app::Camera_WorldToScreenPoint_1(camera, player_head, nullptr);
+			const auto w2s_feet = app::Camera_WorldToScreenPoint_1(camera, player_head, nullptr);
 
 			// tracers
 			ImGuiIO& io = ImGui::GetIO();
 			if (w2s_chest.z > 1.f)
 			{
-				float height = w2s_chest.y / 32.f;
-				float width = height / 4.f;
-				float length = w2s_chest.x - width;
+				const float h = w2s_chest.y / 32.f;
+				const float w = h / 4.f;
+				const float l = w2s_chest.x - w;
 																							 // minus display size from w2s
 																							 // ref: https://forum.unity.com/threads/worldtoscreenpoint-doesnt-work-on-y-screen-axis.34161/
-				draw->AddLine(ImVec2(io.DisplaySize.x / 2, io.DisplaySize.y), ImVec2(length, io.DisplaySize.y - w2s_chest.y), ImColor(255, 255, 255, 255), 2.0F);
+				draw->AddLine(ImVec2(io.DisplaySize.x / 2, io.DisplaySize.y), ImVec2(l, io.DisplaySize.y - w2s_chest.y), ImColor(255, 255, 255, 255), 2.0F);
 			}
 
 			// names
@@ -116,6 +120,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 			pBackBuffer->Release();
 			oWndProc = (WNDPROC)SetWindowLongPtr(window, GWLP_WNDPROC, (LONG_PTR)WndProc);
 			InitImGui();
+			camera = app::Camera_get_current(nullptr);
 			init = true;
 		}
 
