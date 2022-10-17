@@ -133,7 +133,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <!--<PlatformToolset>v142</PlatformToolset>-->
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>

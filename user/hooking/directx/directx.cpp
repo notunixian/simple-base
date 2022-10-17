@@ -41,14 +41,15 @@ LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 void esp_run()
 {
+	// random crash where constantly getting the current camera would crash the game (possibily due to the camera being null?)
 	if (in_room && camera != nullptr)
 	{
-		auto players = app::VRCPlayerApi_get_AllPlayers(nullptr);
-		auto player_amount = app::List_1_VRC_SDKBase_VRCPlayerApi__get_Count(players, nullptr);
+		auto player_list = app::VRCPlayerApi_get_AllPlayers(nullptr);
+		auto players = player_list->fields._items->vector;
 		auto draw = ImGui::GetForegroundDrawList();
-		for (auto i = 1; i < player_amount; i++)
+		for (auto i = 1; i < player_list->fields._size; i++)
 		{
-			const auto player = app::List_1_VRC_SDKBase_VRCPlayerApi__get_Item(players, i, nullptr);
+			const auto player = players[i];
 			
 			// forgot this check here, would cause a crash as sometimes i would access a player that was null.
 			if (player == nullptr) return;
@@ -65,6 +66,9 @@ void esp_run()
 			const auto w2s_chest = app::Camera_WorldToScreenPoint_1(camera, player_chest, nullptr);
 			const auto w2s_head = app::Camera_WorldToScreenPoint_1(camera, player_head, nullptr);
 			const auto w2s_feet = app::Camera_WorldToScreenPoint_1(camera, player_head, nullptr);
+
+
+			// math stolen from azur/void, 2lazy.
 
 			// tracers
 			ImGuiIO& io = ImGui::GetIO();
@@ -96,7 +100,7 @@ void esp_run()
 			ImVec2 draw_pos = ImVec2{ 5, io.DisplaySize.y - (float)15 * i };
 			std::ostringstream oss;
 
-			// using oss here isn't really that great imo but i don't feel like using std::format and such.
+			// using oss here isn't really that great imo but i don't feel like using std::format (not even like i could use it as this isn't c++20) and such.
 			oss << il2cppi_to_string(player->fields.displayName) << " | [" << (int)player_pos.x << ", " << (int)player_pos.y << ", " << (int)player_pos.z << "]";
 			draw->AddText(draw_pos, IM_COL32_WHITE, oss.str().c_str());
 		}
