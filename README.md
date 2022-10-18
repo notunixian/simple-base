@@ -14,8 +14,9 @@ If this is your first time using Il2CppInspector injecton projects, you should r
 
 * All the data exported from Il2CppInspector. This including **all** types, methods, etc.
 * Fully working version of [ocornut's Dear ImGui](https://github.com/ocornut/imgui) using [Rebzzel's kiero](https://github.com/Rebzzel/kiero).
-* Example hooking of methods inside of VRChat.
+* Example hooking of methods inside of VRChat. (avatar loading, onplayerjoin/leave, and onupdate are all hooked)
 * Example tracers, names, and playerlist using methods inside of Unity and ImGui drawing.
+* Due to being requested code for doing it, an example for flying is also included in this base.
 
 ### Using this base:
 * Launch up your favorite IDE that can use msbuild (VSCode, VS, CLion, etc.)
