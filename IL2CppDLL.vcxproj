@@ -90,6 +90,7 @@
     <ClInclude Include="framework\pch-il2cpp.h" />
     <ClInclude Include="user\hooking\directx\directx.h" />
     <ClInclude Include="user\hooking\hook.h" />
+    <ClInclude Include="user\hooking\sig_scan.h" />
     <ClInclude Include="user\includes\detours\detours.h" />
     <ClInclude Include="user\includes\imgui\imconfig.h" />
     <ClInclude Include="user\includes\imgui\imgui.h" />

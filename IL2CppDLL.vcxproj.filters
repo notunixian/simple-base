@@ -77,6 +77,7 @@
     <ClInclude Include="user\includes\imgui\imstb_textedit.h" />
     <ClInclude Include="user\includes\minhook\include\MinHook.h" />
     <ClInclude Include="user\includes\kiero\kiero.h" />
+    <ClInclude Include="user\hooking\sig_scan.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="appdata">
