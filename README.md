@@ -1,7 +1,7 @@
 ## simple-base - base for c++ VRChat clients
 [![HitCount](https://hits.dwyl.com/notunixian/simple-base.svg?style=flat-square)](http://hits.dwyl.com/notunixian/simple-base)
 
-### status: working (11/3/22)
+### status: updating (11/5/22)
 
 A extremely simple base for VRChat clients made in C++, using the data of a modified build of [Il2CppInspector.](https://github.com/djkaty/Il2CppInspector)\
 You are free to do anything you want with this base, aslong as you are following [the license of Il2CppInspector.](https://github.com/djkaty/Il2CppInspector/blob/master/LICENSE)
