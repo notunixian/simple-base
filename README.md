@@ -1,35 +1,7 @@
 ## simple-base - base for c++ VRChat clients
 [![HitCount](https://hits.dwyl.com/notunixian/simple-base.svg?style=flat-square)](http://hits.dwyl.com/notunixian/simple-base)
 
-### status: updating (11/5/22)
+## Archival Note
+**This project has been archived**. To put it simply, there are many other better ways to mod VRChat and IL2CPP games in general. Google is your friend, and you can find anything you want about modding IL2CPP games within C/C++. I hope you all have a fun time modding the game (even during the times of EAC) and can't wait to see what people in this community will create.
 
-A extremely simple base for VRChat clients made in C++, using the data of a modified build of [Il2CppInspector.](https://github.com/djkaty/Il2CppInspector)\
-You are free to do anything you want with this base, aslong as you are following [the license of Il2CppInspector.](https://github.com/djkaty/Il2CppInspector/blob/master/LICENSE)
-
-This repository also includes other data exported by Il2CppInspector, if you want to access any of this data you are free to by going into the il2cppinspector_resources folder.
-
-If this is your first time using Il2CppInspector injecton projects, you should read up on [the writeups on using code inside of them.](https://katyscode.wordpress.com/2021/01/14/il2cppinspector-tutorial-working-with-code-in-il2cpp-dll-injection-projects/)
-
-### This base contains:
-
-* All the data exported from Il2CppInspector. This including **all** types, methods, etc.
-* Fully working version of [ocornut's Dear ImGui](https://github.com/ocornut/imgui) using [Rebzzel's kiero](https://github.com/Rebzzel/kiero).
-* Example hooking of methods inside of VRChat. (avatar loading, onplayerjoin/leave, and onupdate are all hooked)
-* Example tracers, names, and playerlist using methods inside of Unity and ImGui drawing.
-* Due to being requested code for doing it, an example for flying is also included in this base.
-
-### Using this base:
-* Launch up your favorite IDE that can use msbuild (VSCode, VS, CLion, etc.)
-* Unpack the 7z file inside of the appdata folder (this is to get past github's 100 mb per file limit.).
-* Build, and use your favorite injector for EAC (do some googling, example: [face injector](https://github.com/Vazzupov/face-injector-fixed))
-* Any errors relating to linker errors are most likely due to you not having the [DirectX SDK installed.](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
-
-### Updating this base:
-This base will break whenever VRChat decides to update their game, I'll try to update this repo as often as possible when VRChat updates to provide the smoothest experience possible.
-
-But, instructions on how to update this:
-* Grab the source to Il2CppInspector
-* Head over to Il2CppInspector.Common/IL2CPP/Il2CppBinaryClasses.cs
-* Modify the data to properly match being able to read IL2CPP version 24.4.
-* Run your modified version and create a C++ scaffolding project and point it to the directory that contains simple-base.
-* Let it run, and now change any method names that VRChat may have changed due to the updates.
+-- unixian \o
